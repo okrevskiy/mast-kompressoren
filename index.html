@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '535556515962401');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=535556515962401&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAST Kompressoren — Підбір компресорного обладнання</title>
+<style>
+  :root{
+    --navy:#0f2942; --navy-2:#153a5c; --navy-3:#1d4a73;
+    --red:#e2231a; --red-dark:#b91c14;
+    --white:#ffffff; --gray-bg:#f4f6f8; --gray-line:#e4e8ec;
+    --ink:#10161c; --ink-soft:#5b6672; --ink-mute:#8993a0;
+    --shadow-sm:0 2px 10px rgba(15,41,66,.06);
+    --shadow-md:0 12px 32px rgba(15,41,66,.10);
+    --shadow-lg:0 24px 60px rgba(15,41,66,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--white); color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1220px;margin:0 auto;padding:0 32px;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+
+  /* ============ HEADER ============ */
+  .site-header{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--gray-line);
+  }
+  .site-header .wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 32px;}
+  .site-logo img{height:34px;}
+  .site-phone{font-size:14.5px; font-weight:700; color:var(--navy);}
+
+  /* ============ STAGE SWITCHING ============ */
+  .stage{display:none;}
+  .stage.active{display:block; animation:fadeSlideIn .5s cubic-bezier(.22,.9,.34,1);}
+  @keyframes fadeSlideIn{
+    from{opacity:0; transform:translateY(22px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* loader overlay between steps */
+  #loader{
+    position:fixed; inset:0; background:rgba(15,41,66,.94); z-index:999;
+    display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none;
+    transition:opacity .28s ease;
+  }
+  #loader.show{opacity:1; pointer-events:all;}
+  .spinner{
+    width:52px;height:52px;border-radius:50%; border:4px solid rgba(255,255,255,.18);
+    border-top-color:var(--red); animation:spin .7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ============ HERO ============ */
+  .hero-sec{background:var(--white); padding:64px 0 0;}
+  .hero-grid{display:grid; grid-template-columns:1fr .95fr; gap:56px; align-items:center; padding-bottom:56px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:800; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--red); margin-bottom:20px;
+  }
+  .eyebrow:before{content:"";width:22px;height:2px;background:var(--red);}
+  .hero-grid h1{
+    font-size:50px; line-height:1.1; font-weight:800; letter-spacing:-.015em; color:var(--navy); margin-bottom:22px;
+  }
+  .hero-grid .sub{font-size:17.5px; color:var(--ink-soft); max-width:480px; margin-bottom:34px;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px; background:var(--red); color:#fff; font-weight:700;
+    font-size:16px; padding:18px 34px; border-radius:12px; border:none; cursor:pointer;
+    box-shadow:0 10px 26px rgba(226,35,26,.28); transition:transform .18s, box-shadow .18s, background .18s;
+  }
+  .btn-primary:hover{transform:translateY(-3px) scale(1.015); box-shadow:0 16px 34px rgba(226,35,26,.36); background:var(--red-dark);}
+  .btn-primary:active{transform:translateY(-1px) scale(.99);}
+  .btn-primary svg{transition:transform .18s;}
+  .btn-primary:hover svg{transform:translateX(4px);}
+
+  .hero-img-box{
+    position:relative; border-radius:24px; overflow:hidden; box-shadow:var(--shadow-lg); aspect-ratio:4/3.3;
+  }
+  .hero-img-box img{width:100%;height:100%;object-fit:cover;}
+  .hero-img-box .grad{
+    position:absolute; inset:0; background:linear-gradient(200deg, rgba(15,41,66,0) 35%, rgba(15,41,66,.72) 100%);
+  }
+  .hero-img-tag{
+    position:absolute; left:22px; bottom:22px; color:#fff; font-weight:700; font-size:14px;
+    background:rgba(255,255,255,.14); backdrop-filter:blur(6px); padding:9px 16px; border-radius:9px;
+    border:1px solid rgba(255,255,255,.25);
+  }
+
+  /* ============ BENEFITS ============ */
+  .benefits-sec{background:var(--gray-bg); padding:56px 0 64px;}
+  .benefits-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-bottom:44px;}
+  .benefit-card{
+    background:var(--white); border-radius:16px; padding:26px 20px; box-shadow:var(--shadow-sm);
+    text-align:left; transition:transform .22s, box-shadow .22s;
+  }
+  .benefit-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
+  .benefit-ico{
+    width:42px;height:42px;border-radius:11px; background:linear-gradient(135deg,var(--navy),var(--navy-3));
+    color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:14px;
+  }
+  .benefit-card p{font-size:13.6px; font-weight:600; color:var(--ink); line-height:1.45;}
+  .benefits-cta{text-align:center;}
+
+  /* ============ QUIZ SCREENS shared ============ */
+  .quiz-sec{padding:60px 0 80px; min-height:78vh;}
+  .quiz-head{text-align:center; max-width:640px; margin:0 auto 40px;}
+  .quiz-head h2{font-size:34px; font-weight:800; color:var(--navy); letter-spacing:-.01em;}
+
+  .progress-shell{max-width:480px; margin:0 auto 40px;}
+  .progress-label{display:flex; justify-content:center; font-size:12.5px; font-weight:700; color:var(--ink-mute); letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px;}
+  .progress-track{height:6px; background:var(--gray-line); border-radius:4px; overflow:hidden; display:flex; gap:4px;}
+  .progress-seg{flex:1; height:100%; background:var(--gray-line); border-radius:4px; overflow:hidden;}
+  .progress-seg i{display:block; height:100%; width:0%; background:var(--red); transition:width .4s ease;}
+
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:var(--ink-mute);
+    text-decoration:none; cursor:pointer; margin-bottom:18px; transition:color .15s;
+  }
+  .back-link:hover{color:var(--navy);}
+
+  /* type cards (5) */
+  .type-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .type-card{
+    background:var(--white); border:1px solid var(--gray-line); border-radius:18px; overflow:hidden; cursor:pointer;
+    box-shadow:var(--shadow-sm); transition:transform .24s cubic-bezier(.22,.9,.34,1), box-shadow .24s, border-color .24s;
+    position:relative;
+  }
+  .type-card:hover{transform:translateY(-8px) scale(1.015); box-shadow:var(--shadow-lg); border-color:var(--navy-3);}
+  .type-card .media{height:170px; background:var(--gray-bg); position:relative; overflow:hidden;}
+  .type-card .media img{width:100%;height:100%;object-fit:cover; transition:transform .5s ease;}
+  .type-card:hover .media img{transform:scale(1.08);}
+  .type-card .media.iconmedia{display:flex;align-items:center;justify-content:center; background:linear-gradient(135deg,var(--navy),var(--navy-2));}
+  .type-card .media.iconmedia svg{width:56px;height:56px;stroke:#fff; opacity:.92;}
+  .type-body{padding:20px 22px 24px;}
+  .type-body h3{font-size:17.5px; font-weight:800; color:var(--navy); margin-bottom:7px;}
+  .type-body p{font-size:13px; color:var(--ink-soft); margin-bottom:14px; line-height:1.5;}
+  .type-arrow{
+    width:34px;height:34px;border-radius:50%; background:var(--gray-bg); display:flex; align-items:center; justify-content:center;
+    transition:background .2s, transform .2s;
+  }
+  .type-card:hover .type-arrow{background:var(--red); transform:translateX(3px);}
+  .type-card:hover .type-arrow svg{stroke:#fff;}
+  .type-arrow svg{stroke:var(--navy); transition:stroke .2s;}
+
+  /* pill option buttons (pressure / performance) */
+  .pill-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:660px; margin:0 auto;}
+  .pill-grid.cols-1{grid-template-columns:1fr; max-width:420px;}
+  .pill-opt{
+    background:var(--white); border:2px solid var(--gray-line); border-radius:14px; padding:22px 20px;
+    font-size:17px; font-weight:700; color:var(--navy); text-align:center; cursor:pointer;
+    transition:transform .18s, box-shadow .18s, border-color .18s, background .18s;
+  }
+  .pill-opt:hover{transform:translateY(-4px) scale(1.02); box-shadow:var(--shadow-md); border-color:var(--red); background:#fff8f7;}
+
+  /* ============ SUMMARY + CONTACT ============ */
+  .contact-sec{background:var(--gray-bg); padding:64px 0 80px;}
+  .contact-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:52px; align-items:flex-start;}
+  .contact-grid h2{font-size:32px; font-weight:800; color:var(--navy); line-height:1.2; margin-bottom:14px;}
+  .contact-grid > div:first-child > .sub{font-size:15px; color:var(--ink-soft); margin-bottom:26px;}
+
+  .summary-card{
+    background:var(--white); border-radius:16px; padding:22px 24px; box-shadow:var(--shadow-sm); margin-bottom:20px;
+  }
+  .summary-row{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--gray-line); font-size:14px;}
+  .summary-row:last-child{border-bottom:none;}
+  .summary-row span:first-child{color:var(--ink-soft); font-weight:600;}
+  .summary-row span:last-child{color:var(--navy); font-weight:800;}
+  .summary-note{font-size:14px; color:var(--ink-soft); background:#fff; border-left:3px solid var(--red); padding:14px 18px; border-radius:0 10px 10px 0; margin-bottom:28px; line-height:1.6;}
+
+  .form-card{background:var(--white); border-radius:18px; padding:28px 26px; box-shadow:var(--shadow-sm);}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:11.5px; font-weight:800; color:var(--ink-mute); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;}
+  .field input, .field textarea{
+    width:100%; border:1.5px solid var(--gray-line); border-radius:10px; padding:14px 15px; font-size:14.5px;
+    font-family:inherit; outline:none; transition:border-color .15s;
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--navy-3);}
+  .field textarea{resize:vertical; min-height:80px;}
+  .btn-submit{width:100%; justify-content:center; margin-top:6px;}
+
+  .premium-card{
+    background:linear-gradient(155deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);
+    border-radius:20px; padding:38px 32px; color:#fff; box-shadow:var(--shadow-lg); position:relative; overflow:hidden;
+  }
+  .premium-card:before{
+    content:""; position:absolute; width:340px;height:340px; background:radial-gradient(circle,rgba(226,35,26,.28),transparent 70%);
+    top:-140px; right:-140px;
+  }
+  .premium-card h3{font-size:22px; font-weight:800; margin-bottom:22px; position:relative;}
+  .premium-list{list-style:none; position:relative;}
+  .premium-list li{
+    display:flex; align-items:flex-start; gap:11px; font-size:14.5px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .premium-list li:last-child{border-bottom:none;}
+  .premium-check{
+    flex:0 0 22px;height:22px;border-radius:50%; background:var(--red); display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:900; margin-top:1px;
+  }
+
+  /* ============ THANK YOU ============ */
+  .thanks-sec{padding:110px 0; text-align:center;}
+  .thanks-check{
+    width:76px;height:76px;border-radius:50%; background:#e8f6ec; color:#2f9e4f; font-size:36px;
+    display:flex;align-items:center;justify-content:center; margin:0 auto 24px; animation:pop .5s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes pop{from{transform:scale(0);} to{transform:scale(1);}}
+  .thanks-sec h2{font-size:28px; color:var(--navy); margin-bottom:12px;}
+  .thanks-sec p{color:var(--ink-soft); font-size:15px; max-width:440px; margin:0 auto;}
+
+  footer{background:var(--navy); color:rgba(255,255,255,.65); padding:26px 0; font-size:12.5px;}
+  footer .wrap{display:flex; justify-content:space-between;}
+
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-img-box{aspect-ratio:16/9;}
+    .benefits-grid{grid-template-columns:repeat(2,1fr);}
+    .type-grid{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .pill-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 18px;}
+    .hero-grid h1{font-size:34px;}
+    .benefits-grid{grid-template-columns:1fr 1fr;}
+    .type-grid{grid-template-columns:1fr;}
+    .quiz-head h2{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="spinner"></div></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="site-logo"><img src="images/logo.webp" alt="MAST Kompressoren"></div>
+    <div class="site-phone">☎ +380 67 668 1794</div>
+  </div>
+</header>
+
+<!-- ================= STAGE: HERO ================= -->
+<div class="stage active" id="stage-hero">
+  <section class="hero-sec">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">MAST Kompressoren</div>
+        <h1>Підберемо компресорне обладнання саме під ваші потреби</h1>
+        <p class="sub">Пройдіть коротке опитування за 30 секунд та отримайте персональну комерційну пропозицію від нашого менеджера.</p>
+        <button class="btn-primary" onclick="startQuiz()">Обрати обладнання
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="hero-img-box">
+        <img src="images/hero.webp" alt="Гвинтовий компресор MAST Kompressoren">
+        <div class="grad"></div>
+        <div class="hero-img-tag">Найкращий асортимент для дому та бізнесу</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits-sec">
+    <div class="wrap">
+      <div class="benefits-grid">
+        <div class="benefit-card"><div class="benefit-ico">✓</div><p>Офіційна гарантія</p></div>
+        <div class="benefit-card"><div class="benefit-ico">⚡</div><p>Надійні двигуни з мідною обмоткою</p></div>
+        <div class="benefit-card"><div class="benefit-ico">🛠</div><p>Власний сервіс та обслуговування</p></div>
+        <div class="benefit-card"><div class="benefit-ico">★</div><p>Понад 6000 задоволених клієнтів</p></div>
+        <div class="benefit-card"><div class="benefit-ico">🏆</div><p>Лідери на ринку компресорного обладнання України</p></div>
+      </div>
+      <div class="benefits-cta">
+        <button class="btn-primary" onclick="startQuiz()">Отримати пропозицію
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STAGE: TYPE ================= -->
+<div class="stage" id="stage-type">
+  <section class="quiz-sec">
+    <div class="wrap">
+      <div class="progress-shell">
+        <div class="progress-label">Крок 1 із 3</div>
+        <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
+          <div class="progress-seg"><i style="width:0%"></i></div>
+          <div class="progress-seg"><i style="width:0%"></i></div>
+        </div>
+      </div>
+      <div class="quiz-head"><h2>Оберіть тип обладнання</h2></div>
+      <div class="type-grid" id="type-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STAGE: PRESSURE ================= -->
+<div class="stage" id="stage-pressure">
+  <section class="quiz-sec">
+    <div class="wrap">
+      <div class="progress-shell">
+        <div class="progress-label">Крок 2 із 3</div>
+        <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
+          <div class="progress-seg"><i style="width:100%"></i></div>
+          <div class="progress-seg"><i style="width:0%"></i></div>
+        </div>
+      </div>
+      <a class="back-link" onclick="goTo('type')">← Назад</a>
+      <div class="quiz-head"><h2>Оберіть максимальний робочий тиск</h2></div>
+      <div class="pill-grid" id="pressure-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STAGE: PERFORMANCE ================= -->
+<div class="stage" id="stage-performance">
+  <section class="quiz-sec">
+    <div class="wrap">
+      <div class="progress-shell">
+        <div class="progress-label">Крок 3 із 3</div>
+        <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
+          <div class="progress-seg"><i style="width:100%"></i></div>
+          <div class="progress-seg"><i style="width:100%"></i></div>
+        </div>
+      </div>
+      <a class="back-link" onclick="goTo('pressure')">← Назад</a>
+      <div class="quiz-head"><h2>Оберіть необхідну продуктивність</h2></div>
+      <div class="pill-grid cols-1" id="performance-grid" style="max-width:520px;"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STAGE: CONTACT ================= -->
+<div class="stage" id="stage-contact">
+  <section class="contact-sec">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Вкажіть номер телефону та отримайте персональну комерційну пропозицію</h2>
+        <p class="sub">Наш спеціаліст підбере обладнання саме під ваші задачі та підготує оптимальне рішення.</p>
+
+        <div class="summary-card" id="summary-card"></div>
+        <div class="summary-note">Чудово! Ми вже підібрали для вас відповідні моделі. Залиште номер телефону, і наш спеціаліст надішле персональну комерційну пропозицію та допоможе обрати оптимальне рішення.</div>
+
+        <div class="form-card">
+          <div class="field"><label>Ім'я</label><input type="text" id="f-name" placeholder="Ваше ім'я"></div>
+          <div class="field"><label>Телефон</label><input type="tel" id="f-phone" placeholder="+380 __ ___ __ __"></div>
+          <div class="field"><label>Коментар (необов'язково)</label><textarea id="f-comment" placeholder="Розкажіть коротко про ваше завдання"></textarea></div>
+          <button class="btn-primary btn-submit" onclick="submitForm()">Отримати комерційну пропозицію
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="premium-card">
+        <h3>Унікальна пропозиція саме для вас</h3>
+        <ul class="premium-list">
+          <li><span class="premium-check">✓</span>Персональний підбір обладнання</li>
+          <li><span class="premium-check">✓</span>Комерційна пропозиція</li>
+          <li><span class="premium-check">✓</span>Консультація інженера</li>
+          <li><span class="premium-check">✓</span>Допомога з вибором</li>
+          <li><span class="premium-check">✓</span>Офіційна гарантія</li>
+          <li><span class="premium-check">✓</span>Сервісна підтримка</li>
+          <li><span class="premium-check">✓</span>Допомога у запуску</li>
+          <li><span class="premium-check">✓</span>Підбір під конкретне виробництво</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STAGE: THANKS ================= -->
+<div class="stage" id="stage-thanks">
+  <section class="thanks-sec">
+    <div class="wrap">
+      <div class="thanks-check">✓</div>
+      <h2>Заявку прийнято!</h2>
+      <p>Наш спеціаліст зв'яжеться з вами найближчим часом і надішле персональну комерційну пропозицію під ваше завдання.</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>© MAST Kompressoren — компресорне обладнання</div>
+    <div><a href="https://mast-group.com.ua/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">mast-group.com.ua</a></div>
+  </div>
+</footer>
+
+<script>
+const answers = { equipment:"", pressure:"", performance:"", name:"", phone:"", comment:"" };
+let leadEventFired = false; // гарантує, що fbq('track','Lead') спрацює максимум один раз
+
+const ICONS = {
+  piston: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="4"/><path d="M12 11V4M9 4h6"/></svg>`,
+  sandblast: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6M11 12h2M15 12h2M19 12h2"/><path d="M4 8l3 4-3 4"/></svg>`,
+  dryer: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 1 1-12 0c0-4 3-7 6-11z"/></svg>`,
+};
+
+const TYPES = [
+  { id:'piston',  label:'Поршневі компресори',  desc:'Надійне рішення для періодичних і невеликих навантажень.', photo:'images/piston.webp', icon:null, skip:false },
+  { id:'oilfree', label:'Безмасляні компресори', desc:'Чисте повітря без домішок мастила для чутливих виробництв.', photo:'images/oilfree.webp', icon:null, skip:false },
+  { id:'screw',   label:'Гвинтові компресори',   desc:'Максимальна продуктивність для цілодобової промислової роботи.', photo:'images/screw.webp', icon:null, skip:false },
+  { id:'sand',    label:'Піскоструменне обладнання', desc:'Обладнання для очищення та підготовки поверхонь.', photo:'images/sand.webp', icon:null, skip:true },
+  { id:'dryer',   label:'Осушувачі, ресивери та фільтри', desc:'Підготовка і очищення стисненого повітря.', photo:'images/dryer.webp', icon:null, skip:true },
+];
+
+const PRESSURE_OPTIONS = ['До 5 Бар','До 8 Бар','До 12 Бар','Понад 12 Бар'];
+const PERFORMANCE_OPTIONS = ['До 200 л/хв','До 500 л/хв','До 1000 л/хв','До 2000 л/хв','До 5000 л/хв','До 10000 л/хв','Понад 10000 л/хв'];
+
+function renderTypeGrid(){
+  const grid = document.getElementById('type-grid');
+  grid.innerHTML = '';
+  TYPES.forEach(t=>{
+    const card = document.createElement('div');
+    card.className = 'type-card';
+    const mediaHtml = t.photo
+      ? `<div class="media"><img src="${t.photo}" alt="${t.label}"></div>`
+      : `<div class="media iconmedia">${ICONS[t.icon]}</div>`;
+    card.innerHTML = `
+      ${mediaHtml}
+      <div class="type-body">
+        <h3>${t.label}</h3>
+        <p>${t.desc}</p>
+        <div class="type-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>`;
+    card.addEventListener('click', ()=>{
+      answers.equipment = t.label;
+      if(t.skip){
+        renderSummary();
+        transitionTo('contact');
+      } else {
+        transitionTo('pressure');
+      }
+    });
+    grid.appendChild(card);
+  });
+}
+
+function renderPressureGrid(){
+  const grid = document.getElementById('pressure-grid');
+  grid.innerHTML = '';
+  PRESSURE_OPTIONS.forEach(opt=>{
+    const el = document.createElement('div');
+    el.className = 'pill-opt';
+    el.textContent = opt;
+    el.addEventListener('click', ()=>{
+      answers.pressure = opt;
+      transitionTo('performance');
+    });
+    grid.appendChild(el);
+  });
+}
+
+function renderPerformanceGrid(){
+  const grid = document.getElementById('performance-grid');
+  grid.innerHTML = '';
+  PERFORMANCE_OPTIONS.forEach(opt=>{
+    const el = document.createElement('div');
+    el.className = 'pill-opt';
+    el.textContent = opt;
+    el.addEventListener('click', ()=>{
+      answers.performance = opt;
+      renderSummary();
+      transitionTo('contact');
+    });
+    grid.appendChild(el);
+  });
+}
+
+function renderSummary(){
+  const card = document.getElementById('summary-card');
+  let rows = '';
+  if(answers.equipment) rows += `<div class="summary-row"><span>Тип обладнання</span><span>${answers.equipment}</span></div>`;
+  if(answers.pressure) rows += `<div class="summary-row"><span>Максимальний тиск</span><span>${answers.pressure}</span></div>`;
+  if(answers.performance) rows += `<div class="summary-row"><span>Необхідна продуктивність</span><span>${answers.performance}</span></div>`;
+  card.innerHTML = rows;
+}
+
+function startQuiz(){
+  renderTypeGrid();
+  transitionTo('type');
+}
+
+function goTo(stage){
+  document.querySelectorAll('.stage').forEach(s=>s.classList.remove('active'));
+  document.getElementById('stage-'+stage).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(stage==='type') renderTypeGrid();
+  if(stage==='pressure') renderPressureGrid();
+  if(stage==='performance') renderPerformanceGrid();
+}
+
+function transitionTo(stage){
+  const loader = document.getElementById('loader');
+  loader.classList.add('show');
+  setTimeout(()=>{
+    goTo(stage);
+    loader.classList.remove('show');
+  }, 420);
+}
+
+// ⚠️ Встав сюди URL свого розгорнутого Google Apps Script Web App (інструкція — в чаті)
+const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwz5tDY612YQB0tETak5fOQZB0G4m2kGZiQ84KswVk3MCSIjXE1f1O0OQWJD7VA8mMe/exec";
+
+function submitForm(){
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const comment = document.getElementById('f-comment').value.trim();
+  if(!phone){
+    document.getElementById('f-phone').style.borderColor = 'var(--red)';
+    document.getElementById('f-phone').focus();
+    return;
+  }
+  answers.name = name;
+  answers.phone = phone;
+  answers.comment = comment;
+  console.log('MAST Kompressoren lead:', answers);
+
+  const submitBtn = document.querySelector('.btn-submit');
+  const originalText = submitBtn.innerHTML;
+  submitBtn.innerHTML = 'Надсилаємо...';
+  submitBtn.disabled = true;
+
+  if(GOOGLE_SHEETS_WEBHOOK_URL.indexOf('ВСТАВТЕ_СЮДИ') !== -1){
+    // Webhook ще не підключено — показуємо подяку одразу (демо-режим)
+    console.warn('Google Sheets webhook URL не налаштовано. Дані НЕ відправлені нікуди, окрім консолі браузера.');
+    transitionTo('thanks');
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+    return;
+  }
+
+  fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors', // Apps Script не віддає CORS-заголовки — читати відповідь не можна, але запит доходить і рядок дописується
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // text/plain, щоб уникнути preflight-запиту
+    body: JSON.stringify(answers)
+  })
+  .then(()=>{
+    // Успішна відправка у вебхук — надсилаємо подію Lead в Meta Pixel, але не більше одного разу
+    if(!leadEventFired && typeof fbq === 'function'){
+      fbq('track', 'Lead');
+      leadEventFired = true;
+    }
+    transitionTo('thanks');
+  })
+  .catch((err)=>{
+    console.error('Помилка відправки в Google Sheets:', err);
+    // Вебхук не відповів успішно — подія Lead НЕ надсилається
+    transitionTo('thanks'); // все одно показуємо подяку користувачу, лід вже зафіксовано в консолі
+  })
+  .finally(()=>{
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>
