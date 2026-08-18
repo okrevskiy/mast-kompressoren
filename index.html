@@ -163,6 +163,12 @@ src="<img src="images/hero.webp">"
   .type-card:hover .type-arrow svg{stroke:#fff;}
   .type-arrow svg{stroke:var(--navy); transition:stroke .2s;}
 
+  .type-price{
+    display:inline-block; font-size:12.5px; font-weight:800; color:var(--red);
+    background:#fff1f0; padding:5px 12px; border-radius:8px; margin-bottom:14px; letter-spacing:.01em;
+  }
+  .type-price.no-price{display:none;}
+
   /* pill option buttons (pressure / performance) */
   .pill-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:660px; margin:0 auto;}
   .pill-grid.cols-1{grid-template-columns:1fr; max-width:420px;}
@@ -297,58 +303,81 @@ src="<img src="images/hero.webp">"
   </section>
 </div>
 
-<!-- ================= STAGE: TYPE ================= -->
+<!-- ================= STAGE: TASK TYPE ================= -->
+<div class="stage" id="stage-tasktype">
+  <section class="quiz-sec">
+    <div class="wrap">
+      <div class="progress-shell">
+        <div class="progress-label">Крок 1 із 4</div>
+        <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
+          <div class="progress-seg"><i style="width:0%"></i></div>
+          <div class="progress-seg"><i style="width:0%"></i></div>
+          <div class="progress-seg"><i style="width:0%"></i></div>
+        </div>
+      </div>
+      <div class="quiz-head"><h2>Для яких задач вам потрібен компресор?</h2></div>
+      <div class="pill-grid" id="tasktype-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= STAGE: COMPRESSOR TYPE ================= -->
 <div class="stage" id="stage-type">
   <section class="quiz-sec">
     <div class="wrap">
       <div class="progress-shell">
-        <div class="progress-label">Крок 1 із 3</div>
+        <div class="progress-label">Крок 2 із 4</div>
         <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:0%"></i></div>
           <div class="progress-seg"><i style="width:0%"></i></div>
         </div>
       </div>
-      <div class="quiz-head"><h2>Оберіть тип обладнання</h2></div>
+      <a class="back-link" onclick="goTo('tasktype')">← Назад</a>
+      <div class="quiz-head"><h2>Яке обладнання ви розглядаєте?</h2></div>
       <div class="type-grid" id="type-grid"></div>
     </div>
   </section>
 </div>
 
-<!-- ================= STAGE: PRESSURE ================= -->
-<div class="stage" id="stage-pressure">
+<!-- ================= STAGE: WORK INTENSITY ================= -->
+<div class="stage" id="stage-workintensity">
   <section class="quiz-sec">
     <div class="wrap">
       <div class="progress-shell">
-        <div class="progress-label">Крок 2 із 3</div>
+        <div class="progress-label">Крок 3 із 4</div>
         <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:0%"></i></div>
         </div>
       </div>
       <a class="back-link" onclick="goTo('type')">← Назад</a>
-      <div class="quiz-head"><h2>Оберіть максимальний робочий тиск</h2></div>
-      <div class="pill-grid" id="pressure-grid"></div>
+      <div class="quiz-head"><h2>Наскільки інтенсивно буде працювати компресор?</h2></div>
+      <div class="pill-grid" id="workintensity-grid"></div>
     </div>
   </section>
 </div>
 
-<!-- ================= STAGE: PERFORMANCE ================= -->
-<div class="stage" id="stage-performance">
+<!-- ================= STAGE: CAPACITY ================= -->
+<div class="stage" id="stage-capacity">
   <section class="quiz-sec">
     <div class="wrap">
       <div class="progress-shell">
-        <div class="progress-label">Крок 3 із 3</div>
+        <div class="progress-label">Крок 4 із 4</div>
         <div class="progress-track">
+          <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:100%"></i></div>
           <div class="progress-seg"><i style="width:100%"></i></div>
         </div>
       </div>
-      <a class="back-link" onclick="goTo('pressure')">← Назад</a>
-      <div class="quiz-head"><h2>Оберіть необхідну продуктивність</h2></div>
-      <div class="pill-grid cols-1" id="performance-grid" style="max-width:520px;"></div>
+      <a class="back-link" onclick="goTo('workintensity')">← Назад</a>
+      <div class="quiz-head"><h2>Яка продуктивність вам потрібна?</h2></div>
+      <div class="pill-grid cols-1" id="capacity-grid" style="max-width:520px;"></div>
     </div>
   </section>
 </div>
@@ -358,8 +387,8 @@ src="<img src="images/hero.webp">"
   <section class="contact-sec">
     <div class="wrap contact-grid">
       <div>
-        <h2>Вкажіть номер телефону та отримайте персональну комерційну пропозицію</h2>
-        <p class="sub">Наш спеціаліст підбере обладнання саме під ваші задачі та підготує оптимальне рішення.</p>
+        <h2>Підберемо оптимальне компресорне обладнання під ваші задачі</h2>
+        <p class="sub">Залиште контакти — менеджер підбере відповідний варіант та повідомить актуальну ціну.</p>
 
         <div class="summary-card" id="summary-card"></div>
         <div class="summary-note">Чудово! Ми вже підібрали для вас відповідні моделі. Залиште номер телефону, і наш спеціаліст надішле персональну комерційну пропозицію та допоможе обрати оптимальне рішення.</div>
@@ -368,7 +397,7 @@ src="<img src="images/hero.webp">"
           <div class="field"><label>Ім'я</label><input type="text" id="f-name" placeholder="Ваше ім'я"></div>
           <div class="field"><label>Телефон</label><input type="tel" id="f-phone" placeholder="+380 __ ___ __ __"></div>
           <div class="field"><label>Коментар (необов'язково)</label><textarea id="f-comment" placeholder="Розкажіть коротко про ваше завдання"></textarea></div>
-          <button class="btn-primary btn-submit" onclick="submitForm()">Отримати комерційну пропозицію
+          <button class="btn-primary btn-submit" onclick="submitForm()">Отримати підбір
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
@@ -410,25 +439,91 @@ src="<img src="images/hero.webp">"
 </footer>
 
 <script>
-const answers = { equipment:"", pressure:"", performance:"", name:"", phone:"", comment:"" };
+// ⚠️ ЦІНИ НА ОБЛАДНАННЯ — редагуй тільки тут, в одному місці.
+// Формат значення довільний, наприклад "35 000" або "ВІД 35 000 ГРН".
+const compressorPrices = {
+  oilPiston: "XX XXX",
+  oilFreePiston: "XX XXX",
+  screw: "XX XXX",
+  sandblasting: "XX XXX",
+  dryersReceivers: "XX XXX",
+  beltPiston: "XX XXX",
+  directPiston: "XX XXX"
+};
+
+const answers = {
+  taskType: "",
+  compressorType: "",
+  workIntensity: "",
+  capacity: "",
+  name: "",
+  phone: "",
+  comment: ""
+};
 let leadEventFired = false; // гарантує, що fbq('track','Lead') спрацює максимум один раз
+
+const TASK_TYPES = [
+  'Для виробництва',
+  'Для пневмоінструменту',
+  'Для фарбування',
+  'Для СТО / шиномонтажу',
+  'Для піскоструменю',
+  'Для роботи верстатів / ЧПУ',
+  'Інше'
+];
 
 const ICONS = {
   piston: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="4"/><path d="M12 11V4M9 4h6"/></svg>`,
   sandblast: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6M11 12h2M15 12h2M19 12h2"/><path d="M4 8l3 4-3 4"/></svg>`,
   dryer: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 1 1-12 0c0-4 3-7 6-11z"/></svg>`,
+  belt: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="16" r="3"/><circle cx="17" cy="8" r="3"/><path d="M9.6 14.4 14.4 9.6"/></svg>`,
+  direct: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>`,
+  help: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.1 9a3 3 0 1 1 4.9 2.3c-.9.7-1.5 1.2-1.5 2.7"/><path d="M12 17.5h.01"/></svg>`,
 };
 
 const TYPES = [
-  { id:'piston',  label:'Поршневі компресори',  desc:'Надійне рішення для періодичних і невеликих навантажень.', photo:'images/piston.webp', icon:null, skip:false },
-  { id:'oilfree', label:'Безмасляні компресори', desc:'Чисте повітря без домішок мастила для чутливих виробництв.', photo:'images/oilfree.webp', icon:null, skip:false },
-  { id:'screw',   label:'Гвинтові компресори',   desc:'Максимальна продуктивність для цілодобової промислової роботи.', photo:'images/screw.webp', icon:null, skip:false },
-  { id:'sand',    label:'Піскоструменне обладнання', desc:'Обладнання для очищення та підготовки поверхонь.', photo:'images/sand.webp', icon:null, skip:true },
-  { id:'dryer',   label:'Осушувачі, ресивери та фільтри', desc:'Підготовка і очищення стисненого повітря.', photo:'images/dryer.webp', icon:null, skip:true },
+  { id:'piston',   label:'Поршневий масляний',            desc:'Надійне рішення для періодичних і невеликих навантажень.', photo:'images/piston.webp', icon:null, priceKey:'oilPiston' },
+  { id:'oilfree',  label:'Поршневий безмасляний',          desc:'Чисте повітря без домішок мастила для чутливих виробництв.', photo:'images/oilfree.webp', icon:null, priceKey:'oilFreePiston' },
+  { id:'screw',    label:'Гвинтовий',                       desc:'Максимальна продуктивність для цілодобової промислової роботи.', photo:'images/screw.webp', icon:null, priceKey:'screw' },
+  { id:'sand',     label:'Піскоструменне обладнання',       desc:'Обладнання для очищення та підготовки поверхонь.', photo:'images/sand.webp', icon:null, priceKey:'sandblasting' },
+  { id:'dryer',    label:'Осушувачі та ресивери',           desc:'Підготовка і очищення стисненого повітря.', photo:'images/dryer.webp', icon:null, priceKey:'dryersReceivers' },
+  { id:'belt',     label:'Поршневий з ремінним приводом',   desc:'Тихіша робота та довший ресурс за рахунок ремінної передачі.', photo:null, icon:'belt', priceKey:'beltPiston' },
+  { id:'direct',   label:'Поршневий з прямим приводом',     desc:'Компактне та бюджетне рішення для нечастого використання.', photo:null, icon:'direct', priceKey:'directPiston' },
+  { id:'unsure',   label:'Не знаю — допоможіть підібрати',  desc:'Менеджер підбере оптимальний варіант під ваші задачі.', photo:null, icon:'help', priceKey:null },
 ];
 
-const PRESSURE_OPTIONS = ['До 5 Бар','До 8 Бар','До 12 Бар','Понад 12 Бар'];
-const PERFORMANCE_OPTIONS = ['До 200 л/хв','До 500 л/хв','До 1000 л/хв','До 2000 л/хв','До 5000 л/хв','До 10000 л/хв','Понад 10000 л/хв'];
+const WORK_INTENSITY_OPTIONS = [
+  'До 2 годин на день',
+  '2–4 години на день',
+  '4–8 годин на день',
+  '8+ годин на день',
+  'Постійне / цілодобове навантаження',
+  'Важко визначити'
+];
+
+const CAPACITY_OPTIONS = [
+  'До 500 л/хв',
+  '500–1000 л/хв',
+  '1000–2000 л/хв',
+  '2000–4000 л/хв',
+  'Понад 4000 л/хв',
+  'Не знаю — потрібен підбір'
+];
+
+function renderTaskTypeGrid(){
+  const grid = document.getElementById('tasktype-grid');
+  grid.innerHTML = '';
+  TASK_TYPES.forEach(opt=>{
+    const el = document.createElement('div');
+    el.className = 'pill-opt';
+    el.textContent = opt;
+    el.addEventListener('click', ()=>{
+      answers.taskType = opt;
+      transitionTo('type');
+    });
+    grid.appendChild(el);
+  });
+}
 
 function renderTypeGrid(){
   const grid = document.getElementById('type-grid');
@@ -439,50 +534,49 @@ function renderTypeGrid(){
     const mediaHtml = t.photo
       ? `<div class="media"><img src="${t.photo}" alt="${t.label}"></div>`
       : `<div class="media iconmedia">${ICONS[t.icon]}</div>`;
+    const priceHtml = t.priceKey
+      ? `<div class="type-price">Від ${compressorPrices[t.priceKey]} грн</div>`
+      : '';
     card.innerHTML = `
       ${mediaHtml}
       <div class="type-body">
         <h3>${t.label}</h3>
         <p>${t.desc}</p>
+        ${priceHtml}
         <div class="type-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       </div>`;
     card.addEventListener('click', ()=>{
-      answers.equipment = t.label;
-      if(t.skip){
-        renderSummary();
-        transitionTo('contact');
-      } else {
-        transitionTo('pressure');
-      }
+      answers.compressorType = t.label;
+      transitionTo('workintensity');
     });
     grid.appendChild(card);
   });
 }
 
-function renderPressureGrid(){
-  const grid = document.getElementById('pressure-grid');
+function renderWorkIntensityGrid(){
+  const grid = document.getElementById('workintensity-grid');
   grid.innerHTML = '';
-  PRESSURE_OPTIONS.forEach(opt=>{
+  WORK_INTENSITY_OPTIONS.forEach(opt=>{
     const el = document.createElement('div');
     el.className = 'pill-opt';
     el.textContent = opt;
     el.addEventListener('click', ()=>{
-      answers.pressure = opt;
-      transitionTo('performance');
+      answers.workIntensity = opt;
+      transitionTo('capacity');
     });
     grid.appendChild(el);
   });
 }
 
-function renderPerformanceGrid(){
-  const grid = document.getElementById('performance-grid');
+function renderCapacityGrid(){
+  const grid = document.getElementById('capacity-grid');
   grid.innerHTML = '';
-  PERFORMANCE_OPTIONS.forEach(opt=>{
+  CAPACITY_OPTIONS.forEach(opt=>{
     const el = document.createElement('div');
     el.className = 'pill-opt';
     el.textContent = opt;
     el.addEventListener('click', ()=>{
-      answers.performance = opt;
+      answers.capacity = opt;
       renderSummary();
       transitionTo('contact');
     });
@@ -493,24 +587,26 @@ function renderPerformanceGrid(){
 function renderSummary(){
   const card = document.getElementById('summary-card');
   let rows = '';
-  if(answers.equipment) rows += `<div class="summary-row"><span>Тип обладнання</span><span>${answers.equipment}</span></div>`;
-  if(answers.pressure) rows += `<div class="summary-row"><span>Максимальний тиск</span><span>${answers.pressure}</span></div>`;
-  if(answers.performance) rows += `<div class="summary-row"><span>Необхідна продуктивність</span><span>${answers.performance}</span></div>`;
+  if(answers.taskType) rows += `<div class="summary-row"><span>Задача</span><span>${answers.taskType}</span></div>`;
+  if(answers.compressorType) rows += `<div class="summary-row"><span>Тип обладнання</span><span>${answers.compressorType}</span></div>`;
+  if(answers.workIntensity) rows += `<div class="summary-row"><span>Інтенсивність роботи</span><span>${answers.workIntensity}</span></div>`;
+  if(answers.capacity) rows += `<div class="summary-row"><span>Продуктивність</span><span>${answers.capacity}</span></div>`;
   card.innerHTML = rows;
 }
 
 function startQuiz(){
-  renderTypeGrid();
-  transitionTo('type');
+  renderTaskTypeGrid();
+  transitionTo('tasktype');
 }
 
 function goTo(stage){
   document.querySelectorAll('.stage').forEach(s=>s.classList.remove('active'));
   document.getElementById('stage-'+stage).classList.add('active');
   window.scrollTo({top:0, behavior:'smooth'});
+  if(stage==='tasktype') renderTaskTypeGrid();
   if(stage==='type') renderTypeGrid();
-  if(stage==='pressure') renderPressureGrid();
-  if(stage==='performance') renderPerformanceGrid();
+  if(stage==='workintensity') renderWorkIntensityGrid();
+  if(stage==='capacity') renderCapacityGrid();
 }
 
 function transitionTo(stage){
